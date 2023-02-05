@@ -28,8 +28,9 @@ const Signup = ()=> {
 
     const handelClick = (e)=>{
         e.preventDefault()
-        axios.post("http://localhost:8800/", data);
-        axios.post("http://localhost:8800/login", {
+        console.log(process.env.REACT_APP_API_BASE_URL)
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/`, data);
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/login`, {
                 email: email,
                 password: password
             }).then((response)=>{

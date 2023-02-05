@@ -6,8 +6,11 @@ import cookieParser  from "cookie-parser";
 import sessions  from "express-session";
 import jwt from "jsonwebtoken"
 
+import dotenv from "dotenv"
+dotenv.config();
+
 const app = express();
-const port = 8800;
+const port = process.env.PORT;;
 
 app.listen(port, ()=>{
     console.log('Server started');

@@ -15,7 +15,7 @@ const Table = ()=> {
     useEffect(()=>{
         const fetchAllData = async ()=>{
             try {
-                const res = await axios.get("http://localhost:8800/table/")
+                const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/table/`)
                 setData(res.data);
             } catch(err) {
                 console.log(err);
@@ -23,7 +23,7 @@ const Table = ()=> {
         }
         fetchAllData();
 
-        axios.get("http://localhost:8800/login").then((response)=>{
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/login`).then((response)=>{
             if (response.data.loggedIn){
                 if(response.data.user[0].ban_status) navigate("/login");
             } else {
@@ -50,7 +50,7 @@ const Table = ()=> {
     const handleDelete = (data)=>{      
         data.forEach((i)=>{
             if(i.isChecked) {
-                axios.delete("http://localhost:8800/table/"+i.id);
+                axios.delete(`${process.env.REACT_APP_API_BASE_URL}/table/`+i.id);
             }              
         })
         window.location.reload()
@@ -59,7 +59,7 @@ const Table = ()=> {
     const handleBlock = (data)=>{
         data.forEach((i)=>{
             if(i.isChecked) {
-                axios.put("http://localhost:8800/table/"+i.id, {
+                axios.put(`${process.env.REACT_APP_API_BASE_URL}/table/`+i.id, {
                     ban_status: true
                 });
             }              
@@ -71,7 +71,7 @@ const Table = ()=> {
         console.log("in handleBan")
         data.forEach((i)=>{
             if(i.isChecked) {
-                axios.put("http://localhost:8800/table/"+i.id, {
+                axios.put(`${process.env.REACT_APP_API_BASE_URL}/table/`+i.id, {
                     ban_status: false
                 });
             }              
