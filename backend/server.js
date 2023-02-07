@@ -16,12 +16,8 @@ app.listen(port, ()=>{
     console.log('Server started');
 });
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "MetSQL32!",
-    database: "mydb"
-});
+
+const connection = mysql.createConnection(process.env.DATABASE_URL)
 
 connection.connect(function(err) {
     if (err) throw err;
@@ -29,7 +25,7 @@ connection.connect(function(err) {
 });
 
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: [`${process.env.ORIGIN_URL}`],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials:true
 }));
