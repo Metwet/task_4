@@ -63,6 +63,7 @@ app.post("/", function (request, response) {
  
     connection.query(q, (err, results)=>{
         if(err) return results.json(err);
+        console.log(results)
     });
 
 });
