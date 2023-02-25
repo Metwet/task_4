@@ -35,7 +35,7 @@ const Login = ()=> {
         })
     }
 
-    const handelClickSecond = ()=>{navigate("/")}
+    const handelSignup = ()=>{navigate("/")}
 
     return (
         <div>
@@ -59,7 +59,7 @@ const Login = ()=> {
                     <div className="row btnBlock align-items-center">
                         <div className="col">
                             <button type="submit" className="btn btn-primary btnTable" onClick={handelClick}>log in</button>
-                            <button type="submit" className="btn btn-secondary" onClick={handelClickSecond}>sign up</button>
+                            <button type="submit" className="btn btn-secondary" onClick={handelSignup}>sign up</button>
                         </div>
                     </div>
                     <div className="row">
